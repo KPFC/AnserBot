@@ -7,8 +7,8 @@ include './Core/BotCore.php';
 * @Version 0.1
 * @Status Alpha
 */ 
-class BWarchivierung extends Core { 
-	public function BWarchivierung ($Account, $Job, $pUseHTTPS = true) { 
+class EditInEditor extends Core { 
+	public function EditInEditor ($Account, $Job, $pUseHTTPS = true) { 
 		$this->initcurl($Account, $Job, $pUseHTTPS = true);	//login
 		//ask for editor to use
 	//	$editor = $this->askOperator('Enter your favorit text editor:');
@@ -47,5 +47,5 @@ class BWarchivierung extends Core {
 		}
 	}
 }
-$Bot = new BWarchivierung ('KPFC@dewiki', 'Custom-Edit'); // Aufrufen der definierten Passwortdaten in Password.php
+$Bot = new EditInEditor ('KPFC@dewiki', 'Custom-Edit'); // Aufrufen der definierten Passwortdaten in Password.php
 ?>

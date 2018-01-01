@@ -1,15 +1,15 @@
 #!/usr/bin/php
 <?php
-include './Core/BotCore.php';
-/** AnserWikiBrowser.php 
+require './Core/BotCore.php';
+/** AnserWikiBrowser.php
 * Opens a page in a user-defined editor and let’s you do things.
-* @Author KPFC 
+* @Author KPFC
 * @Version 0.1
 * @Status Alpha
-*/ 
-class AnserWikiBrowser extends Core { 
-	public function AnserWikiBrowser ($Account, $Job, $pUseHTTPS = true) { 
-		$this->initcurl($Account, $Job, $pUseHTTPS = true);	//login
+*/
+class AnserWikiBrowser extends Core {
+	public function __construct ($Account, $Job, $pUseHTTPS = true) {
+		$this->initcurl($Account, $Job, $pUseHTTPS); //login
 		//ask for editor to use
 		$editor = $this->askOperator('Enter your favorit text editor:');
 		if (!$editor) {
@@ -84,5 +84,5 @@ class AnserWikiBrowser extends Core {
 		unlink($page_tmp);
 	}
 }
-$Bot = new AnserWikiBrowser ('KPFC@test2wiki', 'Custom-Edit'); // Aufrufen der definierten Passwortdaten in Password.php
+$Bot = new AnserWikiBrowser('KPFC@test2wiki', 'Custom-Edit'); // Aufrufen der definierten Passwortdaten in Password.php
 ?>

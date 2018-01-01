@@ -1,15 +1,15 @@
  #!/usr/bin/php
 <?php
-include './Core/BotCore.php';
-/** EditInEditor.php 
+require './Core/BotCore.php';
+/** EditInEditor.php
 * Opens a page in a user-defined editor and saves the page after closing the editor
-* @Author KPFC 
+* @Author KPFC
 * @Version 0.1
 * @Status Alpha
-*/ 
-class EditInEditor extends Core { 
-	public function EditInEditor ($Account, $Job, $pUseHTTPS = true) { 
-		$this->initcurl($Account, $Job, $pUseHTTPS = true);	//login
+*/
+class EditInEditor extends Core {
+	public function __construct ($Account, $Job, $pUseHTTPS = true) {
+		$this->initcurl($Account, $Job, $pUseHTTPS); //login
 		//ask for editor to use
 	//	$editor = $this->askOperator('Enter your favorit text editor:');
 	//	if (!$editor) {
@@ -28,9 +28,9 @@ class EditInEditor extends Core {
 			unlink($page_tmp);
 			//save page
 			$minor = $this->askOperator('Minor? [y/N/a]:');
-			if (($minor==='a') || ($minor==='A')) {
+			if (($minor === 'a') || ($minor === 'A')) {
 				echo "aborted edit …\n";
-			} else if (($minor==='y') || ($minor==='Y') || ($minor==='yes') || ($minor==='Yes')) {
+			} else if (($minor === 'y') || ($minor === 'Y') || ($minor === 'yes') || ($minor === 'Yes')) {
 				$this->editPageMinor($pagename, $pagecontent, $this->askOperator('Edit Summary:'));
 				echo "saved minor edit …\n";
 			} else {
@@ -38,12 +38,12 @@ class EditInEditor extends Core {
 				echo "saved edit …\n";
 			}
 			$continue = $this->askOperator("Continue? [y/N]");
-			if (($continue==='y') || ($continue==='Y') || ($continue==='yes') || ($continue==='Yes')) {
+			if (($continue === 'y') || ($continue === 'Y') || ($continue === 'yes') || ($continue === 'Yes')) {
 				$exit = false;
 			} else {
 				$exit = true;
 			}
-			
+
 		}
 	}
 }
